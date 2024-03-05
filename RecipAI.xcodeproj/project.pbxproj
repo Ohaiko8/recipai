@@ -50,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				11BC198E2B96B6FD00CCCBCE /* Procfile */,
+				11BC197E2B96914300CCCBCE /* .env */,
 				11BC19802B9691F400CCCBCE /* server.js */,
 				11BC196F2B96905600CCCBCE /* RecipAI */,
 				11BC196E2B96905600CCCBCE /* Products */,
@@ -73,7 +74,6 @@
 				11BC19822B969A9600CCCBCE /* SwiftUIRecipies.swift */,
 				11BC19722B96905600CCCBCE /* ContentView.swift */,
 				11BC198C2B96AF3D00CCCBCE /* RecipeListViewController.swift */,
-				11BC197E2B96914300CCCBCE /* .env */,
 				11BC19742B96905700CCCBCE /* Assets.xcassets */,
 				11BC19762B96905700CCCBCE /* Preview Content */,
 			);
