@@ -1,6 +1,7 @@
-require('dotenv').config();
+require('dotenv').config(); // Keep this for local development
 const express = require('express');
 const { Pool } = require('pg');
+const multer = require('multer'); // Make sure multer is required at the top
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -8,16 +9,31 @@ const port = process.env.PORT || 3000;
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 
+// Configure multer for file uploads
+const upload = multer({ dest: 'uploads/' });
+
+// Heroku provides DATABASE_URL for Postgres add-on users. Use that if available.
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  connectionString: process.env.DATABASE_URL, // Use DATABASE_URL directly
+  ssl: {
+    rejectUnauthorized: false // Necessary for Heroku's default Postgres setup
+  }
 });
 
 app.listen(port, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${port}`); // Corrected to "port" variable
+});
+
+// Your API endpoints remain unchanged...
+
+// Example endpoint:
+app.get('/recipes', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM Recipes');
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 });
 
 // GET /recipes - Retrieves a list of all recipes.
