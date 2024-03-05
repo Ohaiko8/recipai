@@ -1,86 +1,67 @@
 import UIKit
 
-class RecipeListViewController: UIViewController {
+class RecipesListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var recipes = [Recipe]()
     var tableView: UITableView!
-    var recipes = [Recipe]() // Array to hold your recipes
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Recipes"
         setupTableView()
         fetchRecipes()
     }
 
     private func setupTableView() {
         tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecipeCell")
         tableView.dataSource = self
         tableView.delegate = self
+
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
 
-        // Constraints
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
         ])
-
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
     private func fetchRecipes() {
-        // Replace with your actual backend URL
-        guard let url = URL(string: "https://yourbackend.com/api/recipes") else { return }
+        guard let url = URL(string: "https://arcane-inlet-68716.herokuapp.com/recipes") else { return }
 
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let self = self else { return }
-
-            if let error = error {
-                print("Error fetching recipes: \(error)")
-                return
-            }
-
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                print("Error: Invalid response from the server")
-                return
-            }
-
-            guard let data = data else {
-                print("Error: No data received")
-                return
-            }
-
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            guard let data = data, error == nil else { return }
             do {
-                // Decode the JSON data into an array of Recipe objects
-                let decoder = JSONDecoder()
-                let recipes = try decoder.decode([Recipe].self, from: data)
-
+                let recipes = try JSONDecoder().decode([Recipe].self, from: data)
                 DispatchQueue.main.async {
-                    self.recipes = recipes
-                    self.tableView.reloadData()
+                    self?.recipes = recipes
+                    self?.tableView.reloadData()
                 }
             } catch {
-                print("Error decoding JSON: \(error)")
+                print("An error occurred: \(error)")
             }
-        }
-
-        task.resume()
+        }.resume()
     }
-}
 
-extension RecipeListViewController: UITableViewDataSource {
+    // UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipes.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
         let recipe = recipes[indexPath.row]
         cell.textLabel?.text = recipe.title
         return cell
     }
-}
 
-extension RecipeListViewController: UITableViewDelegate {
-    // Implement any delegate methods if needed, such as didSelectRowAt
+    // UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipe = recipes[indexPath.row]
+        let detailVC = RecipeDetailViewController()
+        detailVC.recipe = recipe
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }

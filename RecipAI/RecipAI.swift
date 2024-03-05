@@ -4,7 +4,7 @@ import SwiftUI
 struct RecipeCookbookAppApp: App {
     var body: some Scene {
         WindowGroup {
-            RecipeListView()
+            RecipesListViewController()
         }
     }
 }

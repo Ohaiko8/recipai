@@ -14,10 +14,11 @@
 		11BC19812B9691F400CCCBCE /* server.js in Resources */ = {isa = PBXBuildFile; fileRef = 11BC19802B9691F400CCCBCE /* server.js */; };
 		11BC19832B969A9600CCCBCE /* SwiftUIRecipies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC19822B969A9600CCCBCE /* SwiftUIRecipies.swift */; };
 		11BC19872B969B5600CCCBCE /* SwiftUICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC19862B969B5600CCCBCE /* SwiftUICamera.swift */; };
-		11BC19892B969BD500CCCBCE /* RecipAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC19882B969BD500CCCBCE /* RecipAI.swift */; };
 		11BC198B2B96AB5F00CCCBCE /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC198A2B96AB5F00CCCBCE /* Recipe.swift */; };
 		11BC198D2B96AF3D00CCCBCE /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC198C2B96AF3D00CCCBCE /* RecipeListViewController.swift */; };
 		11BC198F2B96B6FD00CCCBCE /* Procfile in Resources */ = {isa = PBXBuildFile; fileRef = 11BC198E2B96B6FD00CCCBCE /* Procfile */; };
+		11BC19912B96D83700CCCBCE /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC19902B96D83700CCCBCE /* RecipeDetailViewController.swift */; };
+		11BC19932B96D9F200CCCBCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC19922B96D9F200CCCBCE /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,10 +30,11 @@
 		11BC19802B9691F400CCCBCE /* server.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = server.js; sourceTree = "<group>"; };
 		11BC19822B969A9600CCCBCE /* SwiftUIRecipies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIRecipies.swift; sourceTree = "<group>"; };
 		11BC19862B969B5600CCCBCE /* SwiftUICamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICamera.swift; sourceTree = "<group>"; };
-		11BC19882B969BD500CCCBCE /* RecipAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipAI.swift; sourceTree = "<group>"; };
 		11BC198A2B96AB5F00CCCBCE /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		11BC198C2B96AF3D00CCCBCE /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		11BC198E2B96B6FD00CCCBCE /* Procfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Procfile; sourceTree = "<group>"; };
+		11BC19902B96D83700CCCBCE /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		11BC19922B96D9F200CCCBCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,12 +70,13 @@
 		11BC196F2B96905600CCCBCE /* RecipAI */ = {
 			isa = PBXGroup;
 			children = (
+				11BC19922B96D9F200CCCBCE /* AppDelegate.swift */,
 				11BC198A2B96AB5F00CCCBCE /* Recipe.swift */,
-				11BC19882B969BD500CCCBCE /* RecipAI.swift */,
 				11BC19862B969B5600CCCBCE /* SwiftUICamera.swift */,
 				11BC19822B969A9600CCCBCE /* SwiftUIRecipies.swift */,
 				11BC19722B96905600CCCBCE /* ContentView.swift */,
 				11BC198C2B96AF3D00CCCBCE /* RecipeListViewController.swift */,
+				11BC19902B96D83700CCCBCE /* RecipeDetailViewController.swift */,
 				11BC19742B96905700CCCBCE /* Assets.xcassets */,
 				11BC19762B96905700CCCBCE /* Preview Content */,
 			);
@@ -161,10 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11BC19932B96D9F200CCCBCE /* AppDelegate.swift in Sources */,
 				11BC19732B96905600CCCBCE /* ContentView.swift in Sources */,
 				11BC19872B969B5600CCCBCE /* SwiftUICamera.swift in Sources */,
+				11BC19912B96D83700CCCBCE /* RecipeDetailViewController.swift in Sources */,
 				11BC198D2B96AF3D00CCCBCE /* RecipeListViewController.swift in Sources */,
-				11BC19892B969BD500CCCBCE /* RecipAI.swift in Sources */,
 				11BC19832B969A9600CCCBCE /* SwiftUIRecipies.swift in Sources */,
 				11BC198B2B96AB5F00CCCBCE /* Recipe.swift in Sources */,
 			);
