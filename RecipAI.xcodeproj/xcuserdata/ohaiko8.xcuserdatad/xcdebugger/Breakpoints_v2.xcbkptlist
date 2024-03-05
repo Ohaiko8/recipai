@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "75AB80B8-BCC2-4F83-A2C7-5513E8644DCC"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EA1F8FBD-42DE-4651-8F4A-E0DB89CB3D84"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/RecipAI-hfjqwlfgwtjbzhfowacgpobfnhjx/Build/Intermediates.noindex/Previews/RecipAI/Intermediates.noindex/RecipAI.build/Debug-iphonesimulator/RecipAI.build/DerivedSources/GeneratedAssetSymbols.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "SwiftUI.ShapeStyle"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
