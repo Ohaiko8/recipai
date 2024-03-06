@@ -29,7 +29,7 @@ class RecipesListViewController: UIViewController, UITableViewDataSource, UITabl
     }
 
     private func fetchRecipes() {
-        guard let url = URL(string: "https://arcane-inlet-68716.herokuapp.com/recipes") else { return }
+        guard let url = URL(string: "https://arcane-inlet-68716-cb2613b7d4fb.herokuapp.com/recipes") else { return }
 
         URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             guard let data = data, error == nil else { return }
