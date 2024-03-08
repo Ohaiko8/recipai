@@ -302,5 +302,19 @@ app.delete('/images/:imageId', async (req, res) => {
   }
 });
 
+//upload image URL
+app.post('/api/storeImageUrl', async (req, res) => {
+    const { imageUrl } = req.body;
+    
+    // Assume `db` is your database connection, and you have a table or collection ready for storing image URLs
+    try {
+        await db.collection('images').insertOne({ imageUrl });
+        res.status(200).send('Image URL saved successfully');
+    } catch (error) {
+        console.error('Failed to save image URL:', error);
+        res.status(500).send('Server error');
+    }
+});
+
 
 

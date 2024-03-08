@@ -11,15 +11,17 @@ struct Recipe: Codable {
     var id: Int
     var title: String
     var description: String
+    var imageUrl: String // Assuming this is the new field for the image URL
     var instructions: String
     var preparationTime: Int
     var cookingTime: Int
     var servings: Int
-
+    
     enum CodingKeys: String, CodingKey {
         case id = "recipeid"
         case title
         case description
+        case imageUrl = "imageurl" // Adjust based on actual JSON key
         case instructions
         case preparationTime = "preparationtime"
         case cookingTime = "cookingtime"

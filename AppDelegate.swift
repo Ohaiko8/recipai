@@ -1,10 +1,36 @@
 import UIKit
+import Cloudinary
 
-@main // This annotation identifies the app's entry point
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
+    var cloudinary: CLDCloudinary!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Setup Cloudinary configuration
+        let config = CLDConfiguration(cloudName: "dqvnjehbs", apiKey: "456752749853931", apiSecret: "sQbyYH_uqX_GzBML-Pp_Bk579Yc", secure: true)
+        cloudinary = CLDCloudinary(configuration: config)
+        
+        // If your app supports iOS versions below 13, setup the UI here for those versions.
+        if #available(iOS 13, *) {
+            // Leave window setup to SceneDelegate
+        } else {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let customTabBarController = RecipesListViewController()
+            self.window?.rootViewController = customTabBarController
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
+    }
+
+    // Add UISceneSession lifecycle methods if you are using iOS 13 or later.
+    @available(iOS 13.0, *)
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+
+    @available(iOS 13.0, *)
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
 }

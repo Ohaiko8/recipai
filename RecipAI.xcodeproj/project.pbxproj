@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11AEF6F62B9965AA00E3BC46 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AEF6F52B9965AA00E3BC46 /* RecipeTableViewCell.swift */; };
+		11AEF6FA2B99691600E3BC46 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AEF6F92B99691600E3BC46 /* CustomTabBarController.swift */; };
+		11AEF6FD2B996FA300E3BC46 /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = 11AEF6FC2B996FA300E3BC46 /* Cloudinary */; };
+		11AEF6FF2B9984B100E3BC46 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AEF6FE2B9984B100E3BC46 /* Models.swift */; };
 		11BC19752B96905700CCCBCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11BC19742B96905700CCCBCE /* Assets.xcassets */; };
 		11BC19782B96905700CCCBCE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11BC19772B96905700CCCBCE /* Preview Assets.xcassets */; };
 		11BC197F2B96914300CCCBCE /* .env in Resources */ = {isa = PBXBuildFile; fileRef = 11BC197E2B96914300CCCBCE /* .env */; };
 		11BC19812B9691F400CCCBCE /* server.js in Resources */ = {isa = PBXBuildFile; fileRef = 11BC19802B9691F400CCCBCE /* server.js */; };
-		11BC198B2B96AB5F00CCCBCE /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC198A2B96AB5F00CCCBCE /* Recipe.swift */; };
 		11BC198D2B96AF3D00CCCBCE /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC198C2B96AF3D00CCCBCE /* RecipeListViewController.swift */; };
 		11BC198F2B96B6FD00CCCBCE /* Procfile in Resources */ = {isa = PBXBuildFile; fileRef = 11BC198E2B96B6FD00CCCBCE /* Procfile */; };
 		11BC19912B96D83700CCCBCE /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC19902B96D83700CCCBCE /* RecipeDetailViewController.swift */; };
@@ -20,12 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11AEF6F52B9965AA00E3BC46 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		11AEF6F92B99691600E3BC46 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		11AEF6FE2B9984B100E3BC46 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		11BC196D2B96905600CCCBCE /* RecipAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11BC19742B96905700CCCBCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11BC19772B96905700CCCBCE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		11BC197E2B96914300CCCBCE /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 		11BC19802B9691F400CCCBCE /* server.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = server.js; sourceTree = "<group>"; };
-		11BC198A2B96AB5F00CCCBCE /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		11BC198C2B96AF3D00CCCBCE /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		11BC198E2B96B6FD00CCCBCE /* Procfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Procfile; sourceTree = "<group>"; };
 		11BC19902B96D83700CCCBCE /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11AEF6FD2B996FA300E3BC46 /* Cloudinary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,9 +74,11 @@
 			isa = PBXGroup;
 			children = (
 				11BC19982B96DEA200CCCBCE /* Info.plist */,
+				11AEF6FE2B9984B100E3BC46 /* Models.swift */,
+				11AEF6F92B99691600E3BC46 /* CustomTabBarController.swift */,
 				11BC19962B96DDB400CCCBCE /* AppDelegate.swift */,
 				11BC19942B96DBC300CCCBCE /* SceneDelegate.swift */,
-				11BC198A2B96AB5F00CCCBCE /* Recipe.swift */,
+				11AEF6F52B9965AA00E3BC46 /* RecipeTableViewCell.swift */,
 				11BC198C2B96AF3D00CCCBCE /* RecipeListViewController.swift */,
 				11BC19902B96D83700CCCBCE /* RecipeDetailViewController.swift */,
 				11BC19742B96905700CCCBCE /* Assets.xcassets */,
@@ -103,6 +111,9 @@
 			dependencies = (
 			);
 			name = RecipAI;
+			packageProductDependencies = (
+				11AEF6FC2B996FA300E3BC46 /* Cloudinary */,
+			);
 			productName = RecipAI;
 			productReference = 11BC196D2B96905600CCCBCE /* RecipAI.app */;
 			productType = "com.apple.product-type.application";
@@ -131,6 +142,9 @@
 				Base,
 			);
 			mainGroup = 11BC19642B96905600CCCBCE;
+			packageReferences = (
+				11AEF6FB2B996FA300E3BC46 /* XCRemoteSwiftPackageReference "cloudinary_ios" */,
+			);
 			productRefGroup = 11BC196E2B96905600CCCBCE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -161,9 +175,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				11BC19972B96DDB400CCCBCE /* AppDelegate.swift in Sources */,
+				11AEF6FA2B99691600E3BC46 /* CustomTabBarController.swift in Sources */,
 				11BC19912B96D83700CCCBCE /* RecipeDetailViewController.swift in Sources */,
+				11AEF6FF2B9984B100E3BC46 /* Models.swift in Sources */,
 				11BC198D2B96AF3D00CCCBCE /* RecipeListViewController.swift in Sources */,
-				11BC198B2B96AB5F00CCCBCE /* Recipe.swift in Sources */,
+				11AEF6F62B9965AA00E3BC46 /* RecipeTableViewCell.swift in Sources */,
 				11BC19952B96DBC300CCCBCE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +318,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecipAI/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "o capture food images";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -331,6 +349,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecipAI/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "o capture food images";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -370,6 +390,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11AEF6FB2B996FA300E3BC46 /* XCRemoteSwiftPackageReference "cloudinary_ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cloudinary/cloudinary_ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11AEF6FC2B996FA300E3BC46 /* Cloudinary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11AEF6FB2B996FA300E3BC46 /* XCRemoteSwiftPackageReference "cloudinary_ios" */;
+			productName = Cloudinary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 11BC19652B96905600CCCBCE /* Project object */;
 }
