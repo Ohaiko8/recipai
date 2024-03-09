@@ -23,17 +23,111 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "33A737CB-E1D7-4F15-B1B8-546C6D6A8EE4"
+            uuid = "482E42FF-9FD9-4991-AD61-C8BB967CCD0D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RecipAI/RecipeDetailViewController.swift"
+            filePath = "RecipAI/AddRecipeConfirmationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5"
-            endingLineNumber = "5"
-            landmarkName = "RecipeDetailViewController"
-            landmarkType = "3">
+            startingLineNumber = "439"
+            endingLineNumber = "439"
+            landmarkName = "addRecipeAction()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "482E42FF-9FD9-4991-AD61-C8BB967CCD0D - fd0c28181e8bf494"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecipAI.AddRecipeConfirmationViewController.addRecipeAction() -&gt; ()"
+                  moduleName = "RecipAI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ohaiko8/Documents/GitHub/recipai/RecipAI/AddRecipeConfirmationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "439"
+                  endingLineNumber = "439"
+                  offsetFromSymbolStart = "460">
+               </Location>
+               <Location
+                  uuid = "482E42FF-9FD9-4991-AD61-C8BB967CCD0D - fd0c28181e8bf494"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecipAI.AddRecipeConfirmationViewController.addRecipeAction() -&gt; ()"
+                  moduleName = "RecipAI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ohaiko8/Documents/GitHub/recipai/RecipAI/AddRecipeConfirmationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "439"
+                  endingLineNumber = "439"
+                  offsetFromSymbolStart = "816">
+               </Location>
+               <Location
+                  uuid = "482E42FF-9FD9-4991-AD61-C8BB967CCD0D - fd0c28181e8bf494"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecipAI.AddRecipeConfirmationViewController.addRecipeAction() -&gt; ()"
+                  moduleName = "RecipAI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ohaiko8/Documents/GitHub/recipai/RecipAI/AddRecipeConfirmationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "439"
+                  endingLineNumber = "439"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "482E42FF-9FD9-4991-AD61-C8BB967CCD0D - fd0c28181e8bf494"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecipAI.AddRecipeConfirmationViewController.addRecipeAction() -&gt; ()"
+                  moduleName = "RecipAI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ohaiko8/Documents/GitHub/recipai/RecipAI/AddRecipeConfirmationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "439"
+                  endingLineNumber = "439"
+                  offsetFromSymbolStart = "444">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B5189B7F-1901-433F-B469-DD3C330F0781"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "server.js"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B930886F-35E5-4695-9C47-344A02D790BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecipAI/Models.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "UserImage"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

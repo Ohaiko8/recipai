@@ -2,36 +2,28 @@ import Foundation
 
 struct Recipe: Codable {
     var recipeID: Int
-    var title: String
-    var description: String
+    var name: String
+    var imagePath: String?
+    var cookingTime: String
+    var ingredients: String
     var instructions: String
-    var preparationTime: Int
-    var cookingTime: Int
-    var servings: Int
-    var imageUrl: String? // Newly added field
+    var creationDate: String
 
     enum CodingKeys: String, CodingKey {
-        case recipeID = "recipeid"
-        case title
-        case description
+        case recipeID = "recipe_id"
+        case name
+        case imagePath = "image_path"
+        case cookingTime = "cooking_time"
+        case ingredients
         case instructions
-        case preparationTime = "preparationtime"
-        case cookingTime = "cookingtime"
-        case servings
-        case imageUrl = "image_url" // Ensure this matches your database column name
+        case creationDate = "creation_date"
     }
 }
 
-struct Ingredient: Codable {
-    var ingredientID: Int
+struct Ingredient {
     var name: String
-    var description: String
-    
-    enum CodingKeys: String, CodingKey {
-        case ingredientID = "ingredientid"
-        case name
-        case description
-    }
+    var quantity: String? = nil
+    var unit: String? = nil
 }
 
 struct RecipeIngredient: Codable {
@@ -60,6 +52,15 @@ struct UserImage: Codable {
         case imageURL = "imageurl"
         case uploadTime = "uploadtime"
     }
+}
+
+struct RecipeData {
+    var name: String
+    var imagePath: String? // Assuming you'll have an image URL after uploading to Cloudinary
+    var cookingTime: String
+    var ingredients: String
+    var instructions: String
+    var creationDate: String // Format as needed, e.g., "YYYY-MM-DD HH:mm:ss"
 }
 
 // Define the top-level structure that corresponds to the JSON response

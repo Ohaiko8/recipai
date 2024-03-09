@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		11AEF6F62B9965AA00E3BC46 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AEF6F52B9965AA00E3BC46 /* RecipeTableViewCell.swift */; };
-		11AEF6FA2B99691600E3BC46 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AEF6F92B99691600E3BC46 /* CustomTabBarController.swift */; };
 		11AEF6FD2B996FA300E3BC46 /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = 11AEF6FC2B996FA300E3BC46 /* Cloudinary */; };
 		11AEF6FF2B9984B100E3BC46 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AEF6FE2B9984B100E3BC46 /* Models.swift */; };
+		11AEF7012B9A9C5F00E3BC46 /* AddRecipeConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AEF7002B9A9C5F00E3BC46 /* AddRecipeConfirmationViewController.swift */; };
 		11BC19752B96905700CCCBCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11BC19742B96905700CCCBCE /* Assets.xcassets */; };
 		11BC19782B96905700CCCBCE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11BC19772B96905700CCCBCE /* Preview Assets.xcassets */; };
 		11BC197F2B96914300CCCBCE /* .env in Resources */ = {isa = PBXBuildFile; fileRef = 11BC197E2B96914300CCCBCE /* .env */; };
@@ -24,8 +24,8 @@
 
 /* Begin PBXFileReference section */
 		11AEF6F52B9965AA00E3BC46 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
-		11AEF6F92B99691600E3BC46 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		11AEF6FE2B9984B100E3BC46 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		11AEF7002B9A9C5F00E3BC46 /* AddRecipeConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeConfirmationViewController.swift; sourceTree = "<group>"; };
 		11BC196D2B96905600CCCBCE /* RecipAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11BC19742B96905700CCCBCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11BC19772B96905700CCCBCE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -75,11 +75,11 @@
 			children = (
 				11BC19982B96DEA200CCCBCE /* Info.plist */,
 				11AEF6FE2B9984B100E3BC46 /* Models.swift */,
-				11AEF6F92B99691600E3BC46 /* CustomTabBarController.swift */,
 				11BC19962B96DDB400CCCBCE /* AppDelegate.swift */,
 				11BC19942B96DBC300CCCBCE /* SceneDelegate.swift */,
 				11AEF6F52B9965AA00E3BC46 /* RecipeTableViewCell.swift */,
 				11BC198C2B96AF3D00CCCBCE /* RecipeListViewController.swift */,
+				11AEF7002B9A9C5F00E3BC46 /* AddRecipeConfirmationViewController.swift */,
 				11BC19902B96D83700CCCBCE /* RecipeDetailViewController.swift */,
 				11BC19742B96905700CCCBCE /* Assets.xcassets */,
 				11BC19762B96905700CCCBCE /* Preview Content */,
@@ -175,10 +175,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				11BC19972B96DDB400CCCBCE /* AppDelegate.swift in Sources */,
-				11AEF6FA2B99691600E3BC46 /* CustomTabBarController.swift in Sources */,
 				11BC19912B96D83700CCCBCE /* RecipeDetailViewController.swift in Sources */,
 				11AEF6FF2B9984B100E3BC46 /* Models.swift in Sources */,
 				11BC198D2B96AF3D00CCCBCE /* RecipeListViewController.swift in Sources */,
+				11AEF7012B9A9C5F00E3BC46 /* AddRecipeConfirmationViewController.swift in Sources */,
 				11AEF6F62B9965AA00E3BC46 /* RecipeTableViewCell.swift in Sources */,
 				11BC19952B96DBC300CCCBCE /* SceneDelegate.swift in Sources */,
 			);

@@ -113,8 +113,12 @@ class RecipesListViewController: UIViewController {
                         } else {
                             let ingredientsText = filteredIngredients.joined(separator: "\n")
                             print("Detected ingredients: \(ingredientsText)")
-                            DispatchQueue.main.async {
-                                self?.showIngredientsPopup(with: ingredientsText)
+                            DispatchQueue.main.async { [weak self] in
+                                guard let strongSelf = self else { return }
+                                let addRecipeVC = AddRecipeConfirmationViewController()
+                                addRecipeVC.selectedImage = image
+                                addRecipeVC.ingredientsText = filteredIngredients.joined(separator: "\n") // Assuming filteredIngredients is an array of String
+                                strongSelf.navigationController?.pushViewController(addRecipeVC, animated: true)
                             }
                         }
 
@@ -129,6 +133,7 @@ class RecipesListViewController: UIViewController {
                 }
             }.resume()
         }
+    
     private func showAlert(with title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default))

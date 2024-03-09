@@ -22,22 +22,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Setup the capture button
         setupCaptureButton()
+        
+        if let navigationController = window?.rootViewController as? UINavigationController {
+                navigationController.delegate = self  // Set the navigation controller delegate
+            }
     }
     
     private func setupCaptureButton() {
-        // Make sure the window is available
         guard let window = self.window else { return }
-        
-        // Create the capture button if it doesn't exist
+
         if captureButton == nil {
             let button = UIButton(frame: CGRect(x: window.frame.width - 90, y: window.frame.height - 140, width: 60, height: 60))
-            button.backgroundColor = .systemBlue
+            button.backgroundColor = .orange // Change color to orange
             button.setImage(UIImage(systemName: "camera.fill"), for: .normal)
             button.tintColor = .white
             button.layer.cornerRadius = 30
             button.clipsToBounds = true
             button.addTarget(self, action: #selector(captureButtonTapped), for: .touchUpInside)
-            
+
             window.addSubview(button)
             captureButton = button
         }
@@ -98,4 +100,13 @@ extension SceneDelegate: UIImagePickerControllerDelegate, UINavigationController
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             picker.dismiss(animated: true, completion: nil)
         }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        // Check if we're showing the specific view controller that should hide the capture button
+        if viewController is AddRecipeConfirmationViewController {
+            captureButton?.isHidden = true
+        } else {
+            captureButton?.isHidden = false
+        }
+    }
 }

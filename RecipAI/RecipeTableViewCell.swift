@@ -60,11 +60,11 @@ class RecipeTableViewCell: UITableViewCell {
     }
     
     public func configure(with model: Recipe) {
-            titleLabel.text = model.title
-            descriptionLabel.text = model.description
+            titleLabel.text = model.name
+            descriptionLabel.text = model.instructions
             
             // Load the image directly from the Recipe's imageUrl
-            if let imageUrl = model.imageUrl, !imageUrl.isEmpty {
+            if let imageUrl = model.imagePath, !imageUrl.isEmpty {
                 recipeImageView.loadImage(fromURL: imageUrl)
             } else {
                 // Provide a default placeholder image if no URL is available
