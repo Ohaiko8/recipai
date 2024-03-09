@@ -2,7 +2,7 @@ import Foundation
 
 struct Recipe: Codable {
     var recipeID: Int
-    var name: String
+    var title: String
     var imagePath: String?
     var cookingTime: String
     var ingredients: String
@@ -11,7 +11,7 @@ struct Recipe: Codable {
 
     enum CodingKeys: String, CodingKey {
         case recipeID = "recipe_id"
-        case name
+        case title
         case imagePath = "image_path"
         case cookingTime = "cooking_time"
         case ingredients

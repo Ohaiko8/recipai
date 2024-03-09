@@ -60,7 +60,7 @@ class RecipeTableViewCell: UITableViewCell {
     }
     
     public func configure(with model: Recipe) {
-            titleLabel.text = model.name
+            titleLabel.text = model.title
             descriptionLabel.text = model.instructions
             
             // Load the image directly from the Recipe's imageUrl

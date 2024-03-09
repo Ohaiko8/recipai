@@ -456,7 +456,7 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
 
             // Now you have the imageUrl, proceed to create your recipe data dictionary
             let recipeData: [String: Any] = [
-                "name": name,
+                "title": name,
                 "image_path": imageUrl,
                 "cooking_time": cookingTimeString,
                 "ingredients": ingredients,

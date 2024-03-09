@@ -20,11 +20,11 @@ app.listen(port, () => {
 
 // Create a new recipe
 app.post('/recipes', async (req, res) => {
-    const { name, image_path, cooking_time, ingredients, instructions } = req.body;
+    const { title, image_path, cooking_time, ingredients, instructions } = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO Recipes (name, image_path, cooking_time, ingredients, instructions, creation_date) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *',
-            [name, image_path, cooking_time, ingredients, instructions]
+            'INSERT INTO recipeslist (title, image_path, cooking_time, ingredients, instructions, creation_date) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *',
+            [title, image_path, cooking_time, ingredients, instructions]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -35,7 +35,7 @@ app.post('/recipes', async (req, res) => {
 // Fetch all recipes
 app.get('/recipes', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM Recipes');
+        const result = await pool.query('SELECT * FROM recipeslist');
         res.json(result.rows);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -46,7 +46,7 @@ app.get('/recipes', async (req, res) => {
 app.get('/recipes/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query('SELECT * FROM Recipes WHERE recipe_id = $1', [id]);
+        const result = await pool.query('SELECT * FROM recipeslist WHERE recipe_id = $1', [id]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Recipe not found' });
         }
@@ -62,8 +62,8 @@ app.put('/recipes/:id', async (req, res) => {
     const { name, image_path, cooking_time, ingredients, instructions } = req.body;
     try {
         const result = await pool.query(
-            'UPDATE Recipes SET name = $1, image_path = $2, cooking_time = $3, ingredients = $4, instructions = $5 WHERE recipe_id = $6 RETURNING *',
-            [name, image_path, cooking_time, ingredients, instructions, id]
+            'UPDATE recipeslist SET title = $1, image_path = $2, cooking_time = $3, ingredients = $4, instructions = $5 WHERE recipe_id = $6 RETURNING *',
+            [title, image_path, cooking_time, ingredients, instructions, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Recipe not found' });
@@ -78,7 +78,7 @@ app.put('/recipes/:id', async (req, res) => {
 app.delete('/recipes/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query('DELETE FROM Recipes WHERE recipe_id = $1 RETURNING *', [id]);
+        const result = await pool.query('DELETE FROM recipeslist WHERE recipe_id = $1 RETURNING *', [id]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Recipe not found' });
         }
@@ -88,6 +88,7 @@ app.delete('/recipes/:id', async (req, res) => {
     }
 });
 
+//test
 
 
 
