@@ -30,8 +30,8 @@
             filePath = "RecipAI/AddRecipeConfirmationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "439"
-            endingLineNumber = "439"
+            startingLineNumber = "428"
+            endingLineNumber = "428"
             landmarkName = "addRecipeAction()"
             landmarkType = "7">
             <Locations>
@@ -112,6 +112,22 @@
             endingLineNumber = "43"
             landmarkName = "UserImage"
             landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F7DA6F7-1BE8-48D5-99E8-9A4541CDF7E5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecipAI/AddRecipeConfirmationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
+            landmarkName = "addRecipeAction()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

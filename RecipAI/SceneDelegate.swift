@@ -24,13 +24,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         setupCaptureButton()
         
         if let navigationController = window?.rootViewController as? UINavigationController {
-                navigationController.delegate = self  // Set the navigation controller delegate
-            }
+            navigationController.delegate = self  // Set the navigation controller delegate
+        }
     }
     
     private func setupCaptureButton() {
         guard let window = self.window else { return }
-
+        
         if captureButton == nil {
             let button = UIButton(frame: CGRect(x: window.frame.width - 90, y: window.frame.height - 140, width: 60, height: 60))
             button.backgroundColor = .orange // Change color to orange
@@ -39,7 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             button.layer.cornerRadius = 30
             button.clipsToBounds = true
             button.addTarget(self, action: #selector(captureButtonTapped), for: .touchUpInside)
-
+            
             window.addSubview(button)
             captureButton = button
         }
@@ -84,22 +84,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 // MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
 extension SceneDelegate: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            picker.dismiss(animated: true, completion: nil)
-            
-            // Retrieve the captured or selected image
-            guard let image = info[.originalImage] as? UIImage else { return }
-            
-            // Find the RecipesListViewController instance from the navigation stack
-            if let navigationController = window?.rootViewController as? UINavigationController,
-               let recipesListViewController = navigationController.viewControllers.first(where: { $0 is RecipesListViewController }) as? RecipesListViewController {
-                // Call the analyzeImageWithClarifai(image:) method with the selected image
-                recipesListViewController.analyzeImageWithClarifai(image: image)
-            }
-        }
+        picker.dismiss(animated: true, completion: nil)
         
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            picker.dismiss(animated: true, completion: nil)
+        // Retrieve the captured or selected image
+        guard let image = info[.originalImage] as? UIImage else { return }
+        
+        // Find the RecipesListViewController instance from the navigation stack
+        if let navigationController = window?.rootViewController as? UINavigationController,
+           let recipesListViewController = navigationController.viewControllers.first(where: { $0 is RecipesListViewController }) as? RecipesListViewController {
+            // Call the analyzeImageWithClarifai(image:) method with the selected image
+            recipesListViewController.analyzeImageWithClarifai(image: image)
         }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         // Check if we're showing the specific view controller that should hide the capture button

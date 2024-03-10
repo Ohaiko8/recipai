@@ -17,7 +17,6 @@
 		11BC19812B9691F400CCCBCE /* server.js in Resources */ = {isa = PBXBuildFile; fileRef = 11BC19802B9691F400CCCBCE /* server.js */; };
 		11BC198D2B96AF3D00CCCBCE /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC198C2B96AF3D00CCCBCE /* RecipeListViewController.swift */; };
 		11BC198F2B96B6FD00CCCBCE /* Procfile in Resources */ = {isa = PBXBuildFile; fileRef = 11BC198E2B96B6FD00CCCBCE /* Procfile */; };
-		11BC19912B96D83700CCCBCE /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC19902B96D83700CCCBCE /* RecipeDetailViewController.swift */; };
 		11BC19952B96DBC300CCCBCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC19942B96DBC300CCCBCE /* SceneDelegate.swift */; };
 		11BC19972B96DDB400CCCBCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC19962B96DDB400CCCBCE /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -33,7 +32,6 @@
 		11BC19802B9691F400CCCBCE /* server.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = server.js; sourceTree = "<group>"; };
 		11BC198C2B96AF3D00CCCBCE /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		11BC198E2B96B6FD00CCCBCE /* Procfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Procfile; sourceTree = "<group>"; };
-		11BC19902B96D83700CCCBCE /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		11BC19942B96DBC300CCCBCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		11BC19962B96DDB400CCCBCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		11BC19982B96DEA200CCCBCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 				11AEF6F52B9965AA00E3BC46 /* RecipeTableViewCell.swift */,
 				11BC198C2B96AF3D00CCCBCE /* RecipeListViewController.swift */,
 				11AEF7002B9A9C5F00E3BC46 /* AddRecipeConfirmationViewController.swift */,
-				11BC19902B96D83700CCCBCE /* RecipeDetailViewController.swift */,
 				11BC19742B96905700CCCBCE /* Assets.xcassets */,
 				11BC19762B96905700CCCBCE /* Preview Content */,
 			);
@@ -175,7 +172,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				11BC19972B96DDB400CCCBCE /* AppDelegate.swift in Sources */,
-				11BC19912B96D83700CCCBCE /* RecipeDetailViewController.swift in Sources */,
 				11AEF6FF2B9984B100E3BC46 /* Models.swift in Sources */,
 				11BC198D2B96AF3D00CCCBCE /* RecipeListViewController.swift in Sources */,
 				11AEF7012B9A9C5F00E3BC46 /* AddRecipeConfirmationViewController.swift in Sources */,
@@ -311,6 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RecipAI/Preview Content\"";
@@ -318,6 +315,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecipAI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RecipAI;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "o capture food images";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -342,6 +341,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RecipAI/Preview Content\"";
@@ -349,6 +349,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecipAI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RecipAI;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "o capture food images";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

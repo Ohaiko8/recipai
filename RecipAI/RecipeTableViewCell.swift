@@ -7,7 +7,6 @@ class RecipeTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 8
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -15,75 +14,111 @@ class RecipeTableViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 0
         label.textColor = .darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
+    private let ingredientsLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .darkGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let instructionsLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .darkGray
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let cookingTimeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .darkGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    // Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-            super.init(style: style, reuseIdentifier: reuseIdentifier)
-            contentView.addSubview(recipeImageView)
-            contentView.addSubview(titleLabel)
-            contentView.addSubview(descriptionLabel)
-            applyConstraints()
-        }
-        
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .white
+        setupViews()
+        selectionStyle = .none
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func applyConstraints() {
-        let imageSize: CGFloat = 70
+    private func setupViews() {
+        // Add subviews
+        addSubview(recipeImageView)
+        addSubview(titleLabel)
+        addSubview(ingredientsLabel)
+        addSubview(instructionsLabel)
+        addSubview(cookingTimeLabel)
+        
+        // Set up constraints for the recipe image view
         NSLayoutConstraint.activate([
-            recipeImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            recipeImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            recipeImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            recipeImageView.widthAnchor.constraint(equalToConstant: imageSize),
-            recipeImageView.heightAnchor.constraint(equalToConstant: imageSize),
-            
-            titleLabel.leadingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            
-            descriptionLabel.leadingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: 10),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
+            recipeImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            recipeImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            recipeImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            recipeImageView.heightAnchor.constraint(equalToConstant: 200), 
         ])
+        
+        // Set up constraints for the title label
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: recipeImageView.bottomAnchor, constant: 10),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+        ])
+        
+        // Set up constraints for the ingredients label
+        NSLayoutConstraint.activate([
+            ingredientsLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            ingredientsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            ingredientsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+        ])
+        
+        // Set up constraints for the instructions label
+        NSLayoutConstraint.activate([
+            instructionsLabel.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: 10),
+            instructionsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            instructionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+        ])
+        
+        // Set up constraints for the cooking time label
+        NSLayoutConstraint.activate([
+            cookingTimeLabel.topAnchor.constraint(equalTo: instructionsLabel.bottomAnchor, constant: 10),
+            cookingTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            cookingTimeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            cookingTimeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10), // This ensures padding at the bottom
+        ])
+        ingredientsLabel.numberOfLines = 0
     }
     
-    public func configure(with model: Recipe) {
-            titleLabel.text = model.title
-            descriptionLabel.text = model.instructions
-            
-            // Load the image directly from the Recipe's imageUrl
-            if let imageUrl = model.imagePath, !imageUrl.isEmpty {
-                recipeImageView.loadImage(fromURL: imageUrl)
-            } else {
-                // Provide a default placeholder image if no URL is available
-                recipeImageView.image = UIImage(named: "placeholderImage")
-            }
-    }
-}
-
-extension UIImageView {
-    func loadImage(fromURL urlString: String) {
-        guard let url = URL(string: urlString) else { return }
+    // Configure cell with data
+    func configure(with model: Recipe) {
+        titleLabel.text = model.title
+        ingredientsLabel.text = "Ingredients: " + model.ingredients.split(separator: "\n").joined(separator: ", ")
+        instructionsLabel.text = "Instructions:\n\(model.instructions)"
+        cookingTimeLabel.text = "Cooking time: \(model.cookingTime)"
         
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self?.image = image
+        // Load the image asynchronously
+        if let imageUrl = model.imagePath, let url = URL(string: imageUrl) {
+            URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.recipeImageView.image = image
+                    }
                 }
-            }
+            }.resume()
         }
     }
 }
-

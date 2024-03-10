@@ -10,8 +10,8 @@ app.use(express.json());
 
 // Create a new pool using DATABASE_URL
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+connectionString: process.env.DATABASE_URL,
+ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
 });
 
 app.listen(port, () => {
@@ -23,9 +23,9 @@ app.post('/recipes', async (req, res) => {
     const { title, image_path, cooking_time, ingredients, instructions } = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO recipeslist (title, image_path, cooking_time, ingredients, instructions, creation_date) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *',
-            [title, image_path, cooking_time, ingredients, instructions]
-        );
+                                        'INSERT INTO recipeslist (title, image_path, cooking_time, ingredients, instructions, creation_date) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *',
+                                        [title, image_path, cooking_time, ingredients, instructions]
+                                        );
         res.status(201).json(result.rows[0]);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -62,9 +62,9 @@ app.put('/recipes/:id', async (req, res) => {
     const { name, image_path, cooking_time, ingredients, instructions } = req.body;
     try {
         const result = await pool.query(
-            'UPDATE recipeslist SET title = $1, image_path = $2, cooking_time = $3, ingredients = $4, instructions = $5 WHERE recipe_id = $6 RETURNING *',
-            [title, image_path, cooking_time, ingredients, instructions, id]
-        );
+                                        'UPDATE recipeslist SET title = $1, image_path = $2, cooking_time = $3, ingredients = $4, instructions = $5 WHERE recipe_id = $6 RETURNING *',
+                                        [title, image_path, cooking_time, ingredients, instructions, id]
+                                        );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Recipe not found' });
         }
@@ -87,8 +87,6 @@ app.delete('/recipes/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
-
-//test
 
 
 

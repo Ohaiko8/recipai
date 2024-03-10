@@ -8,7 +8,7 @@ struct Recipe: Codable {
     var ingredients: String
     var instructions: String
     var creationDate: String
-
+    
     enum CodingKeys: String, CodingKey {
         case recipeID = "recipe_id"
         case title
@@ -44,7 +44,7 @@ struct UserImage: Codable {
     var imageID: Int
     var recipeID: Int
     var imageURL: String
-    var uploadTime: Date // Assuming you will handle the date conversion
+    var uploadTime: Date
     
     enum CodingKeys: String, CodingKey {
         case imageID = "imageid"
@@ -56,11 +56,11 @@ struct UserImage: Codable {
 
 struct RecipeData {
     var name: String
-    var imagePath: String? // Assuming you'll have an image URL after uploading to Cloudinary
+    var imagePath: String?
     var cookingTime: String
     var ingredients: String
     var instructions: String
-    var creationDate: String // Format as needed, e.g., "YYYY-MM-DD HH:mm:ss"
+    var creationDate: String
 }
 
 // Define the top-level structure that corresponds to the JSON response
@@ -81,7 +81,7 @@ struct Model: Codable {
     let id: String
     let name: String
     let modelVersion: ModelVersion
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name
         case modelVersion = "model_version"
@@ -105,7 +105,7 @@ struct Concept: Codable {
     let name: String
     let value: Float
     let appId: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, value
         case appId = "app_id"

@@ -66,7 +66,6 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        // Layout the imageView once before calculating its rect
         imageView.layoutIfNeeded()
         
         // Calculate the height of the contentView based on the maxY of the last view + some padding
@@ -78,7 +77,6 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
     
     
     deinit {
-        // Don't forget to unregister the notifications when the view controller is deallocated
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -132,13 +130,10 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
     private func setupNavigationBar() {
         guard let navigationBar = navigationController?.navigationBar else { return }
         
-        // Set the navigation bar's items color to white
         navigationBar.tintColor = .white
         
-        // If you have a large title and want to change that color as well
         navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
-        // For the regular title
         navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
@@ -180,27 +175,25 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
         contentView.addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),  // Pinned directly to the top of contentView
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)  // Maintain aspect ratio
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
         ])
         
         // Top gradient
         let topGradientLayer = CAGradientLayer()
-        topGradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100) // Adjust the height as needed
+        topGradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100)
         topGradientLayer.colors = [UIColor.black.withAlphaComponent(0.7).cgColor, UIColor.clear.cgColor]
-        topGradientLayer.locations = [0, 1] // Adjust as needed
+        topGradientLayer.locations = [0, 1]
         imageView.layer.insertSublayer(topGradientLayer, at: 0)
         
         // Bottom gradient
         let bottomGradientLayer = CAGradientLayer()
-        bottomGradientLayer.frame = CGRect(x: 0, y: imageView.bounds.height - 100, width: UIScreen.main.bounds.width, height: 100) // Adjust the y position and height as needed
+        bottomGradientLayer.frame = CGRect(x: 0, y: imageView.bounds.height - 100, width: UIScreen.main.bounds.width, height: 100)
         bottomGradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.7).cgColor]
-        bottomGradientLayer.locations = [1, 0] // Adjust as needed
+        bottomGradientLayer.locations = [1, 0]
         imageView.layer.insertSublayer(bottomGradientLayer, at: 0)
-        
-        //        setupExplanationLabel(atBottomOf: imageView)
     }
     
     private func setupNameTextField() {
@@ -244,10 +237,6 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
             bottomLine.heightAnchor.constraint(equalToConstant: 2) // Height of the underline
         ])
     }
-    
-    // Continue with the rest of your code...
-    
-    
     
     private func setupIngredientsTextView() {
         ingredientsTextView = UITextView()
@@ -303,13 +292,13 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
         
         // Initialize recipeTextView
         recipeTextView = UITextView()
-        recipeTextView.delegate = self  // Set the delegate to self
+        recipeTextView.delegate = self
         recipeTextView.layer.borderColor = UIColor.orange.cgColor
         recipeTextView.layer.borderWidth = 1.0
         recipeTextView.layer.cornerRadius = 5.0
-        recipeTextView.isEditable = true // Make sure it's editable
-        recipeTextView.isUserInteractionEnabled = true // Allow user interaction
-        recipeTextView.backgroundColor = .white // Ensures background is white in all modes
+        recipeTextView.isEditable = true
+        recipeTextView.isUserInteractionEnabled = true
+        recipeTextView.backgroundColor = .white
         recipeTextView.font = UIFont.systemFont(ofSize: 18)
         recipeTextView.text = "Enter your recipe here.\n\nE.g., Combine 1 cup flour with 1/2 cup sugar..."
         recipeTextView.textColor = .lightGray
@@ -443,17 +432,17 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
             showAlert(message: "Please ensure all fields are filled and an image is selected.")
             return
         }
-
+        
         uploadImageToCloudinary(image: selectedImage) { [weak self] imageUrl in
             guard let imageUrl = imageUrl else {
                 self?.showAlert(message: "Image upload failed. Please try again.")
                 return
             }
-
-            let cookingTimeMinutes = Int(self?.cookingTimePicker.countDownDuration ?? 0 / 60)
+            
+            let cookingTimeMinutes = Int((self?.cookingTimePicker.countDownDuration ?? 0 ) / 60)
             let cookingTimeString = "\(cookingTimeMinutes) minutes"
             let creationDate = ISO8601DateFormatter().string(from: Date())
-
+            
             // Now you have the imageUrl, proceed to create your recipe data dictionary
             let recipeData: [String: Any] = [
                 "title": name,
@@ -463,7 +452,7 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
                 "instructions": instructions,
                 "creation_date": creationDate
             ]
-
+            
             // Assume postRecipe is a function that takes recipe data and a completion handler
             self?.postRecipe(recipeData) { isSuccess in
                 DispatchQueue.main.async {
@@ -482,7 +471,7 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
                     }
                 }
             }
-
+            
         }
     }
     
@@ -496,7 +485,7 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
             self.present(alertController, animated: true, completion: nil)
         }
     }
-
+    
     
     private func showAlert(message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
@@ -533,7 +522,7 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
             
             if let httpResponse = response as? HTTPURLResponse {
                 print("HTTP Status Code: \(httpResponse.statusCode)")
-                if httpResponse.statusCode == 200 {
+                if httpResponse.statusCode == 201 {
                     print("Recipe added successfully")
                     completion(true)
                 } else {
@@ -547,19 +536,19 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
         }
         task.resume()
     }
-
+    
     
     func uploadImageToCloudinary(image: UIImage, completion: @escaping (String?) -> Void) {
         // Setup Cloudinary configuration
         let config = CLDConfiguration(cloudName: "dqvnjehbs", apiKey: "456752749853931", apiSecret: "sQbyYH_uqX_GzBML-Pp_Bk579Yc", secure: true)
         let cloudinary = CLDCloudinary(configuration: config)
-
+        
         // Assuming image is your UIImage
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             completion(nil)
             return
         }
-
+        
         // Upload image data
         cloudinary.createUploader().upload(data: imageData, uploadPreset: "cewde6jd") { result, error in
             if let error = error {
@@ -577,8 +566,7 @@ class AddRecipeConfirmationViewController: UIViewController, UITextFieldDelegate
     
     
     private func adjustLayoutForVisibility() {
-        // Adjust any additional constraints to make sure everything fits within the view
-        // This may involve changing the height of text views, adjusting the contentInsets of the scrollView, etc.
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
